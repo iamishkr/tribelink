@@ -1,25 +1,101 @@
 {
   "expo": {
-    "name": "tribelink",
-    "slug": "tribelink",
+    "name": "TribeLink",
+    "slug": "amish",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
+    "scheme": "tribelink",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tribelink.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "TribeLink uses your location to find nearby people with similar interests.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "TribeLink uses your location to find nearby people with similar interests.",
+        "NSCameraUsageDescription": "TribeLink uses your camera for profile photos and posts.",
+        "NSPhotoLibraryUsageDescription": "TribeLink accesses your photos to let you upload profile pictures and post media.",
+        "NSMicrophoneUsageDescription": "TribeLink uses the microphone for voice messages.",
+        "NSFaceIDUsageDescription": "TribeLink uses Face ID for secure biometric login.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0A0A1B"
       },
-      "predictiveBackGestureEnabled": false
+      "package": "com.tribelink.app",
+      "versionCode": 1,
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "RECORD_AUDIO",
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT",
+        "VIBRATE",
+        "RECEIVE_BOOT_COMPLETED"
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "TribeLink uses your camera to take profile photos."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "TribeLink uses your location to find nearby people with similar interests.",
+          "locationAlwaysAndWhenInUsePermission": "TribeLink uses your location to find nearby people with similar interests.",
+          "isAndroidForegroundServiceEnabled": true
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#7C3AED",
+          "sounds": []
+        }
+      ],
+      "expo-secure-store",
+      "expo-local-authentication",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#0A0A1B"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "25932879-bbec-4562-9212-658534645700"
+      }
+    },
+    "owner": "creativedevopss-team"
   }
 }
